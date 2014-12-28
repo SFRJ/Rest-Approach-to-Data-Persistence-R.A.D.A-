@@ -5,7 +5,6 @@ import java.io.Serializable;
 public class ORMPerson implements Serializable {
 
     private Long id;
-    private Long  personToAddresFk;
     private String firstName;
     private String secondName;
 
@@ -15,14 +14,6 @@ public class ORMPerson implements Serializable {
     public ORMPerson(String firstName, String secondName) {
         this.firstName = firstName;
         this.secondName = secondName;
-    }
-
-    public Long getPersonToAddresFk() {
-        return personToAddresFk;
-    }
-
-    public void setPersonToAddresFk(Long personToAddresFk) {
-        this.personToAddresFk = personToAddresFk;
     }
 
     public String getFirstName() {

@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 
-<hibernate-mapping package="domain">
+<hibernate-mapping package="orm">
     <class name="orm.ORMPerson" table="PERSON">
         <id name="id" column="UNIQUE_ID">
             <generator class="increment"/>
@@ -12,8 +12,5 @@
 
         <property name="firstName" column="FIRST_NAME"/>
         <property name="secondName" column="SECOND_NAME"/>
-        <many-to-one name="personToAddresFk" class="orm.ORMAddress" fetch="select">
-            <column name="PERSON_TO_ADDRESS_FK" not-null="true"/>
-        </many-to-one>
     </class>
 </hibernate-mapping>

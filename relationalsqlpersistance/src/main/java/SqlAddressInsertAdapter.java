@@ -1,6 +1,7 @@
 import domain.Address;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import orm.ORMAddress;
 import orm.ORMPerson;
 import services.AddressInsertService;
 
@@ -27,7 +28,8 @@ public class SqlAddressInsertAdapter implements AddressInsertService {
                     person.getSecondName());
             session.save(ormPerson);
         });
-        session.save(address);
+        session.save(new ORMAddress(address.getFirstLine(),
+                address.getSecondLine(),address.getPostcode()));
         session.getTransaction().commit();
     }
 }
