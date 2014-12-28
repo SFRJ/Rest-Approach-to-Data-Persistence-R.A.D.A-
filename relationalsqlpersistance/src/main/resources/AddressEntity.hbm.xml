@@ -5,7 +5,7 @@
 
 
 <hibernate-mapping package="domain">
-    <class name="domain.Address" table="ADDRESS">
+    <class name="orm.ORMAddress" table="ADDRESS">
         <id name="id" column="UNIQUE_ID">
             <generator class="increment"/>
         </id>
@@ -13,12 +13,5 @@
         <property name="firstLine" column="FIRST_LINE"/>
         <property name="secondLine" column="SECOND_LINE"/>
         <property name="postcode" column="POSTCODE"/>
-
-        <set name="persons" table="PERSON" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="PERSON_TO_ADDRESS_FK" not-null="true"/>
-            </key>
-            <one-to-many class="domain.Person"/>
-        </set>
     </class>
 </hibernate-mapping>

@@ -6,8 +6,7 @@ import com.mongodb.BasicDBObject;
 import java.io.Serializable;
 import java.util.List;
 
-public class Address extends BasicDBObject implements Serializable {
-    private Long id;//for hibernate purpose
+public class Address implements Serializable {
     @JsonProperty("firstline")
     private String firstLine;
     @JsonProperty("secondline")
@@ -15,16 +14,16 @@ public class Address extends BasicDBObject implements Serializable {
     @JsonProperty("postcode")
     private String postcode;
     @JsonProperty("persons")
-    private List<Person> person;
+    private List<Person> persons;
 
     public Address() {
     }
 
-    public Address(String firstLine, String secondLine, String postcode, List<Person> person) {
+    public Address(String firstLine, String secondLine, String postcode, List<Person> persons) {
         this.firstLine = firstLine;
         this.secondLine = secondLine;
         this.postcode = postcode;
-        this.person = person;
+        this.persons = persons;
     }
 
     public String getFirstLine() {
@@ -52,19 +51,11 @@ public class Address extends BasicDBObject implements Serializable {
     }
 
     public List<Person> getPersons() {
-        return person;
+        return persons;
     }
 
     public void setPersons(List<Person> person) {
-        this.person = person;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+        this.persons = person;
     }
 
 }

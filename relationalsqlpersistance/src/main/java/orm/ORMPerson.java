@@ -1,24 +1,28 @@
-package domain;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.mongodb.BasicDBObject;
+package orm;
 
 import java.io.Serializable;
 
-public class Person
-        implements Serializable {
+public class ORMPerson implements Serializable {
 
-    @JsonProperty("firstname")
+    private Long id;
+    private Long  personToAddresFk;
     private String firstName;
-    @JsonProperty("secondname")
     private String secondName;
 
-    public Person() {
+    public ORMPerson() {
     }
 
-    public Person(String firstName, String secondName) {
+    public ORMPerson(String firstName, String secondName) {
         this.firstName = firstName;
         this.secondName = secondName;
+    }
+
+    public Long getPersonToAddresFk() {
+        return personToAddresFk;
+    }
+
+    public void setPersonToAddresFk(Long personToAddresFk) {
+        this.personToAddresFk = personToAddresFk;
     }
 
     public String getFirstName() {
@@ -37,15 +41,25 @@ public class Person
         this.secondName = secondName;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Person person = (Person) o;
+        ORMPerson ORMPerson = (ORMPerson) o;
 
-        if (!firstName.equals(person.firstName)) return false;
-        if (!secondName.equals(person.secondName)) return false;
+        if (!firstName.equals(ORMPerson.firstName)) return false;
+        if (!secondName.equals(ORMPerson.secondName)) return false;
 
         return true;
     }
@@ -55,10 +69,5 @@ public class Person
         int result = firstName.hashCode();
         result = 31 * result + secondName.hashCode();
         return result;
-    }
-
-    @Override
-    public String toString() {
-        return super.toString();
     }
 }

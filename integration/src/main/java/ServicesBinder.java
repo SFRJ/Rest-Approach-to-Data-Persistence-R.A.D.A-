@@ -10,14 +10,14 @@ public class ServicesBinder extends AbstractBinder {
     protected void configure() {
 
         //For No-SQL database
-//        bindFactory(MongoClientFactory.class)
-//                .to(MongoClient.class);
-//        bindAsContract(NoSqlAddressInsertAdapter.class)
-//                .to(AddressInsertService.class);
+        bindFactory(MongoClientFactory.class)
+                .to(MongoClient.class);
+        bindAsContract(NoSqlAddressInsertAdapter.class)
+                .to(AddressInsertService.class);
 
         //For SQL database
-        bindAsContract(SqlAddressInsertAdapter.class)
-                .to(AddressInsertService.class);
+//        bindAsContract(SqlAddressInsertAdapter.class)
+//                .to(AddressInsertService.class);
 
     }
 }
