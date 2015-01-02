@@ -1,13 +1,14 @@
 import domain.Address;
+import domain.Person;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import orm.ORMAddress;
 import orm.ORMPerson;
-import services.AddressInsertService;
+import services.sqlcrud.CreateService;
 
 import javax.inject.Inject;
 
-public class SqlAddressInsertAdapter implements AddressInsertService {
+public class SqlAddressInsertAdapter implements CreateService {
 
     @Inject
     public SqlAddressInsertAdapter() {
@@ -19,7 +20,6 @@ public class SqlAddressInsertAdapter implements AddressInsertService {
 
     private Session session;
 
-    @Override
     public void insert(Address address) {
         session = SqlAddressInsertAdapter.getSessionFactory().getCurrentSession();
         session.beginTransaction();
@@ -31,5 +31,15 @@ public class SqlAddressInsertAdapter implements AddressInsertService {
         session.save(new ORMAddress(address.getFirstLine(),
                 address.getSecondLine(),address.getPostcode()));
         session.getTransaction().commit();
+    }
+
+    @Override
+    public void create(Person person) {
+
+    }
+
+    @Override
+    public void create(Address address) {
+
     }
 }
