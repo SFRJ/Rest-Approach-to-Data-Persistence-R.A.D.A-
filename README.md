@@ -1,4 +1,4 @@
-Rest-Approach-to-Data-Persistence-R.A.D.A-
+Rest-Approach-to-Data-Access-R.A.D.A-
 ==========================================
 This is bassically a rest api for data access. 
 With the only difference that by using an hexagonal architecture design, we can easily swich the type of database
