@@ -7,6 +7,7 @@ public class ORMPerson implements Serializable {
     private Long uniqueId;
     private String firstName;
     private String secondName;
+    private Long fkAddress;
 
     public ORMPerson() {
     }
@@ -14,6 +15,12 @@ public class ORMPerson implements Serializable {
     public ORMPerson(String firstName, String secondName) {
         this.firstName = firstName;
         this.secondName = secondName;
+    }
+
+    public ORMPerson(String firstName, String secondName, Long fkAddress) {
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.fkAddress = fkAddress;
     }
 
     public String getFirstName() {
@@ -40,7 +47,13 @@ public class ORMPerson implements Serializable {
         this.uniqueId = id;
     }
 
+    public Long getFkAddress() {
+        return fkAddress;
+    }
 
+    public void setFkAddress(Long fkAddress) {
+        this.fkAddress = fkAddress;
+    }
 
     @Override
     public boolean equals(Object o) {

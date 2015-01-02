@@ -36,7 +36,9 @@
         <property name="use_sql_comments">false</property>
 
         <!-- Drop and re-create the database schema on startup -->
-        <property name="hbm2ddl.auto">update</property>
+        <!--<property name="hibernate.hbm2ddl.auto">create</property>-->
+        <!--<property name="hbm2ddl.auto">create-drop</property>-->
+        <!--<property name="hbm2ddl.auto">update</property>-->
 
         <mapping resource="PersonEntity.hbm.xml"/>
         <mapping resource="AddressEntity.hbm.xml"/>

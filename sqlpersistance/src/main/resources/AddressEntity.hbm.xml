@@ -15,11 +15,11 @@
         <property name="postcode" column="POSTCODE"/>
 
 
-        <set name="ormPersons" table="ADDRESS" inverse="true" fetch="select">
+        <set name="ormPersons" table="ADDRESS" inverse="true" fetch="select" cascade="save-update">
             <key>
                 <column name="UNIQUE_ID" not-null="true" />
             </key>
-            <one-to-many class="ORMPerson" />
+            <one-to-many class="ORMPerson"/>
         </set>
 
     </class>

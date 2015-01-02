@@ -7,6 +7,7 @@ import orm.ORMPerson;
 import services.sqlcrud.CreateService;
 
 import javax.inject.Inject;
+import java.util.Set;
 import java.util.function.Function;
 
 import static java.util.stream.Collectors.toSet;
@@ -27,14 +28,26 @@ public class SqlAddressInsertAdapter implements CreateService {
     public void create(Address address) {
         session = SqlAddressInsertAdapter.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        session.save(new ORMAddress(address.getFirstLine(),
-                address.getSecondLine(),address.getPostcode(), address.getPersons().stream().map(toOrmPersons()).collect(toSet())));
+
+
+        Set<ORMPerson> ormPersons = address.getPersons().stream().map(toOrmPersons()).collect(toSet());
+
+        ORMAddress ormAddress = new ORMAddress();
+        ormAddress.setFirstLine(address.getFirstLine());
+        ormAddress.setSecondLine(address.getSecondLine());
+        ormAddress.setPostcode(address.getPostcode());
+        ormAddress.setOrmPersons(ormPersons);
+
+
+        session.save(ormAddress);
+//        session.save(ormPersons);
+
         session.getTransaction().commit();
     }
 
     @Override
     public void create(Person person) {
-        //The way the Mapping is done, Persons cannot be created without address.
+        //
     }
 
     private Function<Person, ORMPerson> toOrmPersons() {

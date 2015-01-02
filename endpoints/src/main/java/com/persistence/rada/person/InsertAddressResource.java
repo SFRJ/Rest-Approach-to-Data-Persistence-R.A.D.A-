@@ -25,7 +25,7 @@ public class InsertAddressResource {
     @POST
     @Consumes({"application/json"})
     public void insert(Address address) {
-//        noSqlcreateService.create(address);
+        noSqlcreateService.create(address);
         sqlCreateService.create(address);
     }
 
