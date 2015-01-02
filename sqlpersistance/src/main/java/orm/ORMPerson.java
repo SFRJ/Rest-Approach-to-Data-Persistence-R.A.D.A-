@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class ORMPerson implements Serializable {
 
-    private Long id;
+    private Long uniqueId;
     private String firstName;
     private String secondName;
 
@@ -32,12 +32,12 @@ public class ORMPerson implements Serializable {
         this.secondName = secondName;
     }
 
-    public Long getId() {
-        return id;
+    public Long getUniqueId() {
+        return uniqueId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUniqueId(Long id) {
+        this.uniqueId = id;
     }
 
 

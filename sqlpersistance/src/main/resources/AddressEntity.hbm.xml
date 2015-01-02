@@ -6,12 +6,21 @@
 
 <hibernate-mapping package="orm">
     <class name="orm.ORMAddress" table="ADDRESS">
-        <id name="id" column="UNIQUE_ID">
+        <id name="uniqueId" column="UNIQUE_ID">
             <generator class="increment"/>
         </id>
 
         <property name="firstLine" column="FIRST_LINE"/>
         <property name="secondLine" column="SECOND_LINE"/>
         <property name="postcode" column="POSTCODE"/>
+
+
+        <set name="ormPersons" table="ADDRESS" inverse="true" fetch="select">
+            <key>
+                <column name="UNIQUE_ID" not-null="true" />
+            </key>
+            <one-to-many class="ORMPerson" />
+        </set>
+
     </class>
 </hibernate-mapping>

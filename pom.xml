@@ -11,7 +11,7 @@
     <modules>
         <module>core</module>
         <module>endpoints</module>
-        <module>relationalsqlpersistance</module>
+        <module>sqlpersistance</module>
         <module>nosqlpersistance</module>
         <module>integration</module>
     </modules>

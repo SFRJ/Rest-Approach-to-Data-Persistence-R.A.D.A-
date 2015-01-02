@@ -2,29 +2,32 @@ package orm;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 public class ORMAddress implements Serializable {
 
-    private Long id;
+    private Long uniqueId;
     private String firstLine;
     private String secondLine;
     private String postcode;
+    private Set<ORMPerson> ormPersons;
 
     public ORMAddress() {
     }
 
-    public ORMAddress(String firstLine, String secondLine, String postcode) {
+    public ORMAddress(String firstLine, String secondLine, String postcode, Set<ORMPerson> ormPersons) {
         this.firstLine = firstLine;
         this.secondLine = secondLine;
         this.postcode = postcode;
+        this.ormPersons = ormPersons;
     }
 
-    public Long getId() {
-        return id;
+    public Long getUniqueId() {
+        return uniqueId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUniqueId(Long id) {
+        this.uniqueId = id;
     }
 
     public String getFirstLine() {
@@ -51,6 +54,14 @@ public class ORMAddress implements Serializable {
         this.postcode = postcode;
     }
 
+    public Set<ORMPerson> getOrmPersons() {
+        return ormPersons;
+    }
+
+    public void setOrmPersons(Set<ORMPerson> ormPersons) {
+        this.ormPersons = ormPersons;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -59,7 +70,7 @@ public class ORMAddress implements Serializable {
         ORMAddress that = (ORMAddress) o;
 
         if (!firstLine.equals(that.firstLine)) return false;
-        if (!id.equals(that.id)) return false;
+        if (!uniqueId.equals(that.uniqueId)) return false;
         if (!postcode.equals(that.postcode)) return false;
         if (!secondLine.equals(that.secondLine)) return false;
 
@@ -68,7 +79,7 @@ public class ORMAddress implements Serializable {
 
     @Override
     public int hashCode() {
-        int result = id.hashCode();
+        int result = uniqueId.hashCode();
         result = 31 * result + firstLine.hashCode();
         result = 31 * result + secondLine.hashCode();
         result = 31 * result + postcode.hashCode();
