@@ -40,7 +40,6 @@ public class SqlAddressInsertAdapter implements CreateService {
 
 
         session.save(ormAddress);
-//        session.save(ormPersons);
 
         session.getTransaction().commit();
     }
