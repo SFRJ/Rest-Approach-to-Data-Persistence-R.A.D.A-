@@ -7,7 +7,7 @@ public class ORMPerson implements Serializable {
     private Long uniqueId;
     private String firstName;
     private String secondName;
-    private Long fkAddress;
+    private ORMAddress ormAddress;
 
     public ORMPerson() {
     }
@@ -17,10 +17,10 @@ public class ORMPerson implements Serializable {
         this.secondName = secondName;
     }
 
-    public ORMPerson(String firstName, String secondName, Long fkAddress) {
+    public ORMPerson(String firstName, String secondName, ORMAddress ormAddress) {
         this.firstName = firstName;
         this.secondName = secondName;
-        this.fkAddress = fkAddress;
+        this.ormAddress = ormAddress;
     }
 
     public String getFirstName() {
@@ -47,12 +47,12 @@ public class ORMPerson implements Serializable {
         this.uniqueId = id;
     }
 
-    public Long getFkAddress() {
-        return fkAddress;
+    public ORMAddress getOrmAddress() {
+        return ormAddress;
     }
 
-    public void setFkAddress(Long fkAddress) {
-        this.fkAddress = fkAddress;
+    public void setOrmAddress(ORMAddress fkAddress) {
+        this.ormAddress = fkAddress;
     }
 
     @Override

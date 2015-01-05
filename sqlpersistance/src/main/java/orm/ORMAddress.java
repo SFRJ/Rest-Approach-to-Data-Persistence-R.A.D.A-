@@ -59,6 +59,8 @@ public class ORMAddress implements Serializable {
     }
 
     public void setOrmPersons(Set<ORMPerson> ormPersons) {
+        for(ORMPerson ormPerson : ormPersons)
+              ormPerson.setOrmAddress(this);
         this.ormPersons = ormPersons;
     }
 

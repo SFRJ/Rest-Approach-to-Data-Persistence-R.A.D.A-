@@ -13,6 +13,6 @@
         <property name="firstName" column="FIRST_NAME"/>
         <property name="secondName" column="SECOND_NAME"/>
 
-        <many-to-one name="fkAddress" class="orm.ORMPerson" column="FK_ADDRESS" cascade="all" not-null="false" />
+        <many-to-one name="ormAddress" class="orm.ORMPerson" column="FK_ADDRESS" cascade="all" not-null="false" />
     </class>
 </hibernate-mapping>

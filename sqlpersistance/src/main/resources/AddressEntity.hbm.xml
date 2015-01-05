@@ -17,7 +17,7 @@
 
         <set name="ormPersons" table="ADDRESS" inverse="true" fetch="select" cascade="save-update">
             <key>
-                <column name="UNIQUE_ID" not-null="true" />
+                <column name="FK_ADDRESS" not-null="true" />
             </key>
             <one-to-many class="ORMPerson"/>
         </set>
